@@ -52,6 +52,17 @@ module.exports = (grunt) ->
 
     copy: {}
 
+    clean:
+      dist:
+        files: [
+          dot: true
+          src: [
+            '<%= config.tmp %>'
+            '<%= config.dist %>/*'
+            '!<%= config.dist %>/.git*'
+          ]
+        ]
+
     htmlmin:
       dist:
         files: [
@@ -75,3 +86,4 @@ module.exports = (grunt) ->
     cssmin: {}
 
   grunt.registerTask('server', ['connect:livereload', 'open', 'watch'])
+  grunt.registerTask('build', ['clean:dist', 'compass:dist', 'htmlmin', 'useminPrepare', 'concat', 'cssmin', 'usemin'])
