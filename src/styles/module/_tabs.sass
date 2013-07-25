@@ -1,0 +1,35 @@
+@import "../color"
+@import "compass/css3"
+
+.nav-tabs
+  li
+    display: inline-block
+    background: $color-dark
+    border: solid $color-darker
+    border-width: 1px 1px 0 1px
+    @include border-radius(4px 4px 0 0)
+
+    a
+      display: block
+      padding: 4px 8px
+      color: $color-white
+      text-decoration: none
+
+    &.active
+      position: relative
+      top: 1px
+      background: $color-white
+      font-weight: bold
+      a
+        color: $color-font
+
+.tab-content
+  padding: 4px
+  background: $color-white
+  border: 1px solid $color-darker
+  @include border-radius(0 0 4px 4px)
+
+  .tab-pane
+    display : none
+    &.active
+      display: block
